@@ -4,19 +4,31 @@ class Zoo:
     def __init__(self,name):
         self.text=name
 
+def ask(q):
+    
+    while True:
+        try:
+            answer = input(q+"? \n").upper()
+            if answer[0] == 'Y':
+                return True
+            elif answer[0] == 'N':
+                return False
+        except:
+            pass
+
 def guess(zoo):
     if hasattr(zoo,"yes"):       
-        answer = input(zoo.text+"? \n")
-        if answer[0] in ["y","Y"] :
+        if ask(zoo.text):
             guess(zoo.yes)
         else:
             guess(zoo.no)
     else:
         print ("I guess your animal is",zoo.text)
-        answer = input("Right? \n")
-        if answer[0] in ["y","Y"] :
+        if ask("Right"):
             print('yay I found it! :)')
         else:
+        
+            
             animal = input("what is your animal? \n")
             question = input ("what is the differense between " + animal + " and " + zoo.text+"? \n")
 
