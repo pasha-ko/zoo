@@ -3,6 +3,11 @@ import pickle
 class Zoo:
     def __init__(self,name):
         self.text=name
+        
+def count(zoo):
+    if hasattr(zoo,"yes"):       
+       return count(zoo.yes)+count(zoo.no) 
+    else: return 1
 
 def ask(q):
     
@@ -47,6 +52,7 @@ except:
 
 while True:
     print("Hello! Think of an animal in english")
+    print("Всего ",count(zoo), "животных")
     guess(zoo)
     file=open('zoo','wb')
     pickle.dump(zoo,file)
