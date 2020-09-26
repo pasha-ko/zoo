@@ -6,14 +6,15 @@ class Zoo:
         
 def count(zoo):
     if hasattr(zoo,"yes"):       
-       return count(zoo.yes)+count(zoo.no) 
+       return count(zoo.yes) + count(zoo.no) 
     else: return 1
-def show(zoo,s):
+    
+def show(zoo,s=""):
+    print(s+"|_"+zoo.text) 
     if hasattr(zoo,"yes"):
-       show(zoo.yes,s+"  ")
-       print(s+zoo.text) 
-       show(zoo.no,s+"  ") 
-    else: print(s+zoo.text)
+       show(zoo.yes,s+" | ")
+       show(zoo.no,s+" ") 
+ 
 
 def ask(q):
     
@@ -59,7 +60,7 @@ except:
 while True:
     print("Hello! Think of an animal in english")
     print("Всего ",count(zoo), "животных")
-    show(zoo,"")
+    show(zoo)
     guess(zoo)
     file=open('zoo','wb')
     pickle.dump(zoo,file)
