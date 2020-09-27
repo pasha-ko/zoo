@@ -1,0 +1,17 @@
+prefix = {
+    " ": "",
+    " y": "",
+    " n": "",
+    "y": "├─",
+    "n": "└─",
+    "yy": "│ ",
+    "yn": "│ ",
+    "nn": "  ",
+    "ny": "  "
+}
+def show(zoo,s1,s2):
+    if hasattr(zoo,"yes"):
+       print(s1+prefix[s2]+"┐"+zoo.text+"?") 
+       show(zoo.yes,s1+prefix[s2+"y"],"y")
+       show(zoo.no,s1+prefix[s2+"n"],"n") 
+    else: print(s1+prefix[s2]+zoo.text)
