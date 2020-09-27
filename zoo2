@@ -1,17 +1,52 @@
-prefix = {
-    " ": "",
-    " y": "",
-    " n": "",
-    "y": "├─",
-    "n": "└─",
-    "yy": "│ ",
-    "yn": "│ ",
-    "nn": "  ",
-    "ny": "  "
-}
-def show(zoo,s1,s2):
-    if hasattr(zoo,"yes"):
-       print(s1+prefix[s2]+"┐"+zoo.text+"?") 
-       show(zoo.yes,s1+prefix[s2+"y"],"y")
-       show(zoo.no,s1+prefix[s2+"n"],"n") 
-    else: print(s1+prefix[s2]+zoo.text)
+┐predator?
+├─┐domisticated?
+│ ├─┐bark?
+│ │ ├─dog
+│ │ └─cat
+│ └─┐live in water?
+│   ├─┐fish?
+│   │ ├─shark
+│   │ └─turtle
+│   └─┐striped?
+│     ├─tiger
+│     └─┐Серый?
+│       ├─Волк
+│       └─lion
+└─┐Little?
+  ├─Mouse
+  └─zebra
+    ┌─dog
+  ┌─┤bark?
+  │ └─cat
+┌─┤domisticated?
+│ │   ┌─shark
+│ │ ┌─┤fish?
+│ │ │ └─turtle
+│ └─┤live in water?
+│   │ ┌─tiger
+│   └─┤striped?
+│     │ ┌─Волк
+│     └─┤Серый?
+│       └─lion
+┤predator?
+│ ┌─Mouse
+└─┤Little?
+  └─zebra
+                               ┌─dog
+                        ┌─bark?┤
+                        │      └─cat
+         ┌─domisticated?┤
+         │              │                      ┌─shark
+         │              │               ┌─fish?┤
+         │              │               │      └─turtle
+         │              └─live in water?┤
+         │                              │         ┌─tiger
+         │                              └─striped?┤
+         │                                        │       ┌─Волк
+         │                                        └─Серый?┤
+         │                                                └─lion
+predator?┤
+         │        ┌─Mouse
+         └─Little?┤
+                  └─zebra
+П
